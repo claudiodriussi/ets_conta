@@ -1,0 +1,9 @@
+---
+conti: dati/CONTI.xlsx
+eventi: dati/EVENTI.xlsx
+anagrafiche: dati/ANAGRAFICHE.xlsx
+dest_dir: documenti
+pref_schede: SCHEDA_
+pref_eventi: EVENTO_
+pref_anagrafiche: ANAG_
+patrimonio: [CASSA, BANCA, PAYPAL]
