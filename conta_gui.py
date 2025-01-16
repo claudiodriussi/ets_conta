@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import sys
 import tkinter as tk
 from tkinter import filedialog as fd
 import pathlib
@@ -11,7 +12,7 @@ PROJECT_UI = PROJECT_PATH / "conta_gui.ui"
 
 
 class ContaTkApp:
-    def __init__(self, master=None):
+    def __init__(self, master=None, primanota_file=None):
         self.builder = builder = pygubu.Builder()
         builder.add_resource_path(PROJECT_PATH)
         builder.add_from_file(PROJECT_UI)
@@ -36,6 +37,8 @@ class ContaTkApp:
         self.do_eventi.set(False)
         self.do_anag.set(False)
         self.do_giornale.set(False)
+        if primanota_file:
+            self.primanota_file.set(primanota_file)
 
         builder.connect_callbacks(self)
 
@@ -75,5 +78,6 @@ class ContaTkApp:
 
 
 if __name__ == "__main__":
-    app = ContaTkApp()
+    filename = None if len(sys.argv) < 2 else sys.argv[1]
+    app = ContaTkApp(primanota_file=filename)
     app.run()
